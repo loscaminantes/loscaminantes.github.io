@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los Caminantes - Albion Online</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
+</head>
+<div id="bienvenida-modal" style="display: none;" class="modal">
+    <div class="modal-content">
+      <h2>¡Bienvenido a Los Caminantes!</h2>
+      <p>Únete a nuestro Discord y sé parte de la hermandad.</p>
+      <button id="cerrar-modal" class="discord-button">Cerrar</button>
+    </div>
+  </div>
+  
+<body>
+  <!-- Botón de menú (por si se usa más adelante) -->
+  <div class="hamburger" onclick="toggleSidebar()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <img src="logo.png" alt="Logo de Los Caminantes" class="logo" />
+        <ul class="nav-links">
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#objetivos">Objetivos</a></li>
+          <li><a href="#reclutamiento">Reclutamiento</a></li>
+          <li><a href="https://discord.gg/b9cPFJHaSh" target="_blank">Discord</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>Los Caminantes</h1>
+      <p>Cabalgamos por la gloria. Marchamos como uno.</p>
+      <a href="https://discord.gg/b9cPFJHaSh" class="discord-button">ÚNETE AL DISCORD</a>
+      <button id="modo-toggle" class="discord-button" style="margin-top: 1rem;">☀️ Modo Claro</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="quienes-somos" class="section">
+      <div class="container">
+        <h2>¿Quiénes somos?</h2>
+        <p>Los Caminantes es un gremio de jugadores apasionados por Albion Online. Participamos en PvP, recolección, ZvZ y más. Unidos por la hermandad, la estrategia y la gloria.</p>
+      </div>
+    </section>
+
+    <section id="objetivos" class="section dark">
+      <div class="container">
+        <h2>Objetivos</h2>
+        <ul>
+          <li>Dominar territorios en PvP.</li>
+          <li>Organizar eventos semanales.</li>
+          <li>Fomentar la cooperación y la progresión individual.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="reclutamiento" class="section">
+      <div class="container">
+        <h2>Reclutamiento</h2>
+        <p>Buscamos jugadores activos, con ganas de crecer y participar en comunidad. Uso activo del Discord.</p>
+        <a href="https://discord.gg/b9cPFJHaSh" class="discord-button">¡ÚNETE AHORA!</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Los Caminantes | Albion Online</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function toggleSidebar() {
+      // Por si se añade funcionalidad futura
+    }
+  </script>
+<script src="script.js"></script>
+</body>
+</html>
