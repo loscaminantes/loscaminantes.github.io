@@ -21,7 +21,11 @@ window.addEventListener("DOMContentLoaded", () => {
       if (toggleBtn) toggleBtn.textContent = "🌙 Modo Oscuro";
     }
   });
-  
+
+  // Cargar muertes recientes al cargar DOM
+  cargarMuertesRecientes();
+});
+
   // TOGGLE modo claro/oscuro
   const toggleBtn = document.getElementById("modo-toggle");
   toggleBtn?.addEventListener("click", () => {
@@ -31,4 +35,27 @@ window.addEventListener("DOMContentLoaded", () => {
   
     toggleBtn.textContent = modoActual === "claro" ? "🌙 Modo Oscuro" : "☀️ Modo Claro";
   });
-  
+
+// MUERTES RECIENTES
+async function cargarMuertesRecientes() {
+  try {
+    const response = await fetch('https://gameinfo.albiononline.com/api/gameinfo/kills/recent');
+    const data = await response.json();
+
+    const lista = document.getElementById('lista-muertes');
+    if (!lista) return;
+
+    lista.innerHTML = ''; // Limpia antes de agregar
+
+    data.slice(0, 10).forEach(kill => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <strong>${kill.Killer.Name}</strong> mató a <strong>${kill.Victim.Name}</strong> 
+        (${Math.round(kill.TotalVictimKillFame).toLocaleString()} de fama)
+      `;
+      lista.appendChild(li);
+    });
+  } catch (error) {
+    console.error('Error al cargar muertes:', error);
+  }
+}
